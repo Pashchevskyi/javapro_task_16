@@ -16,6 +16,14 @@ public class TestAnnotationProcessor {
   private static List<String> methodsNames;
   private static List<Object> testsResults;
 
+  /**
+   * Processes @Test annotation on methods, runs those methods
+   *
+   * @param clazz Object with metadata about class, which methods we are going to test
+   * @param objectToRunTests object of testing class (returned by BeforeSuiteAnnotationProcessor)
+   * @throws InvocationTargetException when we are going to call not method via reflection
+   * @throws IllegalAccessException when we are going to call unavailable method via reflection
+   */
   public void handleTest(Class<?> clazz, Object objectToRunTests)
       throws InvocationTargetException, IllegalAccessException {
     List<Method> testingMethods = Arrays.stream(clazz.getMethods())

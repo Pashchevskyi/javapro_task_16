@@ -10,6 +10,15 @@ import java.util.Arrays;
 
 public class AfterSuiteAnnotationProcessor extends OnceUsedAnnotationProcessor {
 
+  /**
+   * Processes @AfterSuite annotation on method, runs that method
+   *
+   * @param clazz Object with metadata about class, which methods we are going to test
+   * @param objectToRunTests object of testing class (returned by BeforeSuiteAnnotationProcessor)
+   * @throws MoreThanOneTestsFinalizingMethodException when there are more than one @AfterSuite
+   * @throws InvocationTargetException when we are going to call not method via reflection
+   * @throws IllegalAccessException when we are going to call unavailable method via reflection
+   */
   public void handleAfterSuite(Class<?> clazz, Object objectToRunTests)
       throws MoreThanOneTestsFinalizingMethodException, InvocationTargetException,
       IllegalAccessException {

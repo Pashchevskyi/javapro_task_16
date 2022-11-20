@@ -13,6 +13,11 @@ public class TestRunner {
   private static TestAnnotationProcessor testAnnotationProcessor;
   private static AfterSuiteAnnotationProcessor afterSuiteAnnotationProcessor;
 
+  /**
+   * Starts annotation processors
+   *
+   * @param clazz Object with metadata about class, which methods we are going to test
+   */
   public static void start(Class<?> clazz) {
     try {
       if (clazz != null) {
